@@ -1,6 +1,5 @@
 
 from os import name
-from typing import NamedTuple
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -14,7 +13,7 @@ def index():
         bmi = calc_bmi(Weight, Height)
     return render_template("bmi_calc.html",
 	                        bmi=bmi,
-                            name=NamedTuple)
+                            name=name)
 
 def calc_bmi(weight, height):
     return round((weight / ((height / 100) ** 2)), 2)

@@ -29,10 +29,10 @@
                 <form class="pure-form" method="post" action="/">
                     Please enter your name:<br>
                     <input type="text" name="name" placeholder="Full name"><br>
-                    Weight in KG: <br>
-                    <input type="text" name="weight" placeholder="Weight"><br>
-                    Height in CM: <br>
-                    <input type="text" name="height" placeholder="Height"><br>
+                    Weight in Kg: <br>
+                    <input type="text" name="weight" placeholder="Key in your Weight"><br>
+                    Height in cm: <br>
+                    <input type="text" name="height" placeholder="Key in your Height"><br></br>
                     <br><button type="submit" class="button-success pure-button" value="submit">Calculate</button>
 
                     </div>
@@ -41,8 +41,8 @@
         <br>
             <div>
                 <center>
-                    {% if bmi %}
-                    <p>Hi, {{name}},your bmi is {{bmi}}</p>
+                    {%if bmi%}
+                    <p>Hi {{name}}your bmi is {{bmi}}</p>
                     {% endif %}
                 </center>
             </div>
