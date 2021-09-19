@@ -1,20 +1,23 @@
-from flask import Flask, request,render_template
 
+from os import name
+from typing import NamedTuple
+from flask import Flask, render_template, request
 
-app=Flask(__name__)
+app = Flask(__name__)
 
-@app.route("/", methods=['POST', 'GET'])
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    bmi = ''
+    if request.method == 'POST' and 'weight' in request.form:
+        Weight = float(request.form.get('weight'))
+        Height = float(request.form.get('height'))
+        bmi = calc_bmi(Weight, Height)
+    return render_template("bmi_calc.html",
+	                        bmi=bmi,
+                            name=NamedTuple)
 
-def hello_world():
-    bmi=''
+def calc_bmi(weight, height):
+    return round((weight / ((height / 100) ** 2)), 2)
 
-    if request.method=='POST' and 'weight' in request.form and 'height' in request.form:
-
-        
-        Weight=float(request.form.get('weight'))
-
-        Height=float(request.form.get('height'))
-
-        bmi= round(Weight/((Height/100)**2),2)
-
-    return render_template('index.html',bmi=bmi)
+if __name__ == '__main__':
+    app.run()

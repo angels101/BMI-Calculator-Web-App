@@ -1,0 +1,51 @@
+<!doctype html >
+
+<head>
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <link rel="stylesheet type="text/css" href="/static/style.css"
+
+    <style>
+    <div>
+       <style scoped="">
+          .button-success{
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+        .button-success {
+            background: rgb(105, 247, 61);
+            /* this is a green */
+        }
+    </style>
+</head>
+<center>
+    <h1>
+        Calculate your Body Mass Index
+    </h1>
+
+    <body>
+            <div>
+                <form class="pure-form" method="post" action="/">
+                    Please enter your name:<br>
+                    <input type="text" name="name" placeholder="Full name"><br>
+                    Weight in KG: <br>
+                    <input type="text" name="weight" placeholder="Weight"><br>
+                    Height in CM: <br>
+                    <input type="text" name="height" placeholder="Height"><br>
+                    <br><button type="submit" class="button-success pure-button" value="submit">Calculate</button>
+
+                    </div>
+                </form>
+            </div>
+        <br>
+            <div>
+                <center>
+                    {% if bmi %}
+                    <p>Hi, {{name}},your bmi is {{bmi}}</p>
+                    {% endif %}
+                </center>
+            </div>
+</center>
+
+</body>
